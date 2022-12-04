@@ -7,12 +7,16 @@ User = get_user_model()
 
 
 class Group(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
-    description = models.TextField()
+    title = models.CharField(max_length=200, verbose_name='Название группы')
+    slug = models.SlugField(unique=True, verbose_name='Ссылка сайта после group/...')
+    description = models.TextField(verbose_name='Описание')
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name = 'Группа'
+        verbose_name_plural = 'Группы'
 
 
 class Post(models.Model):
@@ -25,3 +29,7 @@ class Post(models.Model):
                               on_delete=models.CASCADE,
                               null=True,
                               blank=True)
+    
+    class Meta:
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
