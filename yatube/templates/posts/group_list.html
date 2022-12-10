@@ -4,10 +4,12 @@
 {% endblock %}
 {% block content %}
   <h1>Записи сообщества {{ group.title }}</h1>
+  <p>{{ group.description }}</p>
   {% for post in posts %}
-    {% include '../includes/post.html' %}
-    {% if not forloop.last %}
-      <hr>
-    {% endif %}
+    {% include 'includes/post.html' %}
+      {% if not forloop.last %}
+        <hr>
+      {% endif %}
+    </article>
   {% endfor %} 
 {% endblock %}

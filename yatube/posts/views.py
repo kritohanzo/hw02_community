@@ -2,12 +2,13 @@ from django.shortcuts import get_object_or_404, render
 
 from .models import Group, Post
 
-POSTS_LIMIT_ON_PAGE = 10
+
+POSTS_PER_PAGE = 10
 
 
 def index(request):
     template = "posts/index.html"
-    posts = Post.objects.all()[:POSTS_LIMIT_ON_PAGE]
+    posts = Post.objects.all()[:POSTS_PER_PAGE]
     context = {"posts": posts}
     return render(request, template, context)
 
