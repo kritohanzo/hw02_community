@@ -40,6 +40,9 @@ class Post(models.Model):
         verbose_name="Группа",
     )
 
+    def __str__(self):
+        return self.text
+        
     class Meta:
         verbose_name = "Пост"
         verbose_name_plural = "Посты"
